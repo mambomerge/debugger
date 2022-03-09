@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+  <aura:attribute name="mergeDataString" type="String" default="" />
+  <aura:attribute name="mergeData" type="Object" />
+  <aura:attribute name="showMambo" type="Boolean" default="false" /> 
+  <lightning:card footer="" title="Mambo Merge Debugger">
+    <aura:set attribute="actions">
+      <lightning:button variant="brand" label="{!if(v.showMambo,'Hide Mambo','Load Mambo')}" onclick="{!c.toggleMamboMerge}" />
+    </aura:set>
+    <lightning:textarea value="{!v.mergeDataString}" label="Paste Merge Data" maxlength="300" />
+    <aura:if isTrue="{!v.showMambo}">
+      <mambo:mamboMerge debug="true" mergeData="{!v.mergeData}" />
+    </aura:if>
+  </lightning:card>
+</aura:component>	
