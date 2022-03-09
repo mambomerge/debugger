@@ -1,8 +1,6 @@
 # debugger
 Aura Component for debugging Mambo Merge 
 
-This recipe will step you through creating a button for Contact List Views to generate a single docx file per selected record.
-
 ## Instructions
 1. Install Mambo Merge from the AppExchange by following these instructions: https://www.mambomerge.com/support/installation-from-appexchange/
 
