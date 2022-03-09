@@ -6,7 +6,7 @@
     <aura:set attribute="actions">
       <lightning:button variant="brand" label="{!if(v.showMambo,'Hide Mambo','Load Mambo')}" onclick="{!c.toggleMamboMerge}" />
     </aura:set>
-    <lightning:textarea value="{!v.mergeDataString}" label="Paste Merge Data" maxlength="300" />
+    <lightning:textarea value="{!v.mergeDataString}" label="Paste Merge Data" maxlength="1000" />
     <aura:if isTrue="{!v.showMambo}">
       <mambo:mamboMerge debug="true" mergeData="{!v.mergeData}" />
     </aura:if>
