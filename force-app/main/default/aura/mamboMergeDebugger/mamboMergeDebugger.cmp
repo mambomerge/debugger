@@ -1,6 +1,7 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global">
   <aura:attribute name="mergeDataString" type="String" default="" />
   <aura:attribute name="templateId" type="String" default="" />
+  <aura:attribute name="mergeFieldNotation" type="String" default="{{FieldName}}" />
   <aura:attribute name="mergeData" type="Object" />
   <aura:attribute name="showMambo" type="Boolean" default="false" /> 
   <lightning:card footer="" title="Mambo Merge Debugger">
@@ -8,11 +9,18 @@
       <lightning:button variant="brand" label="{!if(v.showMambo,'Hide Mambo','Load Mambo')}" onclick="{!c.toggleMamboMerge}" />
     </aura:set>
     <div class="slds-p-horizontal_small">
-      <lightning:input value="{!v.templateId}" label="Template ID" />
+      <lightning:layout>
+        <lightning:layoutItem class="slds-p-right_small" flexibility="auto">
+          <lightning:input value="{!v.templateId}" label="Template ID" />
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto, no-grow">
+          <lightning:input value="{!v.mergeFieldNotation}" label="Merge Field Notation" />
+        </lightning:layoutItem>
+      </lightning:layout>
       <lightning:textarea value="{!v.mergeDataString}" label="Paste Merge Data" />
     </div>
     <aura:if isTrue="{!v.showMambo}">
-      <mambo:mamboMerge debug="true" mergeData="{!v.mergeData}" templateId="{!v.templateId}"/>
+      <mambo:mamboMerge debug="true" mergeData="{!v.mergeData}" templateId="{!v.templateId}" mergeFieldNotation="{!v.mergeFieldNotation}"/>
     </aura:if>
   </lightning:card>
 </aura:component>	
